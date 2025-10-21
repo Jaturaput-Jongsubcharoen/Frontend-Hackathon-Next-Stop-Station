@@ -10,7 +10,7 @@ function App() {
 
   const fetchAPI = async () => {
     try {
-      const response = await axios.get("http://localhost:8084/api", {
+      const response = await axios.get(`${import.meta.env.VITE_BE_URL}/api`, {
         withCredentials: true,
       });
       const data = response.data.fruits;
