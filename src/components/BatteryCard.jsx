@@ -1,9 +1,6 @@
-import React, { useState } from "react";
-import MaintenanceModal from "./MaintenanceModal";
+import React from "react";
 
 function BatteryCard({ data }) {
-  const [isModalOpen, setModalOpen] = useState(false);
-
   const processBatteryData = (rawData) => {
     if (!rawData) return {};
 
@@ -15,24 +12,7 @@ function BatteryCard({ data }) {
     const cycles = rawData.cycles || 0;
     const healthScore = Math.min(100, Math.max(0, rawData.healthScore || 0));
 
-    const riskLevel =
-      healthScore < 70
-        ? "High Risk"
-        : healthScore < 85
-        ? "Medium Risk"
-        : "Low Risk";
-
-    return {
-      ...rawData,
-      soc,
-      soh,
-      voltage,
-      current,
-      temperature,
-      cycles,
-      healthScore,
-      riskLevel,
-    };
+    return { ...rawData, soc, soh, voltage, current, temperature, cycles, healthScore };
   };
 
   const getConditionStyle = (status, condition) => {
@@ -80,29 +60,6 @@ function BatteryCard({ data }) {
           {condition.text}
         </p>
       </div>
-
-      <div className="alerts">
-        <h3>AI Predictions & Alerts</h3>
-        <div className="alert warning">
-          <strong>Battery Degradation Detected:</strong> {processedData.predictiveAlert}
-        </div>
-        <div className="alert info">
-          <strong>Optimization:</strong> {processedData.optimization}
-        </div>
-        <div className="alert insight">
-          <strong>Insight:</strong> Estimated failure risk: {processedData.estimatedFailureRisk} ({processedData.riskLevel})
-        </div>
-
-        <button className="schedule-btn" onClick={() => setModalOpen(true)}>
-          Schedule Maintenance Now
-        </button>
-      </div>
-
-      <MaintenanceModal
-        isOpen={isModalOpen}
-        onClose={() => setModalOpen(false)}
-        busData={processedData}
-      />
     </div>
   );
 }
