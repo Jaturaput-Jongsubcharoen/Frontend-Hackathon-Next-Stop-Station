@@ -21,7 +21,7 @@ function DriverTopbar({ busData }) {
             busData.status === "active" ? "online" : "status-offline"
           }
         >
-          {busData.status === "active" ? "Online" : "Maintenance"}
+          {busData.status === "active" ? "System Online" : "Maintenance"}
         </p>
         <p className="update">
           Last updated: {new Date().toLocaleTimeString()}

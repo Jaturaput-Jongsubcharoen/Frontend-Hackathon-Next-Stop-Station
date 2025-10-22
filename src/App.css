@@ -300,12 +300,14 @@ body {
   /*margin-right: 1.5rem;*/
 }
 
+/*
 @media (min-width: 1024px) {
   .card {
     margin-left: 2rem;
     margin-right: 2rem;
   }
 }
+*/
 
 .card {
   opacity: 0;
