@@ -227,27 +227,34 @@ body {
 
 /* Status colors */
 .bus-button.healthy {
-  background: rgba(60, 180, 75, 0.8);
-  box-shadow: 0 0 8px rgba(60, 180, 75, 0.4);
+  background: rgba(60, 180, 75, 1);
+  color: rgba(0, 0, 0, 1);
+  box-shadow: 0 0 8px rgba(60, 180, 75, 0.6);
+
 }
 
 .bus-button.warning {
-  background: rgba(255, 179, 0, 0.8);
-  box-shadow: 0 0 8px rgba(255, 179, 0, 0.4);
+  background: rgba(60, 180, 75, 0.6);
+  color: rgba(0, 0, 0, 1);
+  box-shadow: 0 0 8px rgba(60, 180, 75, 0.4);
+
 }
 
 .bus-button.critical {
-  background: rgba(229, 57, 53, 0.85);
-  box-shadow: 0 0 8px rgba(229, 57, 53, 0.4);
+  background: rgba(60, 180, 75, 0.2);
+  color: rgba(0, 0, 0, 1);
+  box-shadow: 0 0 8px rgba(60, 180, 75, 0.3);
+
 }
 
 .bus-button.offline {
-  background: rgba(160, 160, 160, 0.4);
-  color: rgba(240, 240, 240, 0.65);
-  opacity: 0.6;
+  background: rgba(60, 180, 75, 0.2);
+  color: rgba(0, 0, 0, 1);
+
   cursor: not-allowed;
   box-shadow: none;
 }
+
 
 .bus-button.offline.active {
   background: rgba(190, 190, 190, 0.5);
@@ -255,8 +262,8 @@ body {
 }
 
 .bus-button.maintenance {
-  background: rgba(160, 160, 160, 0.55);
-  color: #fff;
+  background: rgba(160, 160, 160, 0.2);
+  color: rgba(0, 0, 0, 1);
   opacity: 0.9;
   cursor: pointer;         
   box-shadow: none;

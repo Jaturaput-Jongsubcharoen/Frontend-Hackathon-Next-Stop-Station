@@ -41,7 +41,7 @@ function BatteryCard({ data }) {
       </div>
 
       <div className="health-section">
-        <h3>Health Score</h3>
+        <h3>AI-Predicted Health Score</h3>
         <div className="health-circle" style={{ borderColor: condition.color }}>
           <div className="score" style={{ color: condition.color }}>
             {processedData.healthScore}

@@ -7,7 +7,7 @@ function BatteryPredictionPanel({ data, onOpenModal }) {
   return (
     <div className="card battery-prediction-panel mt-6">
       <h3 className="text-xl font-semibold mb-3 text-indigo-700">
-        AI Predictions & Alerts
+        AI Live Alerts
       </h3>
 
       <div className="alert warning">

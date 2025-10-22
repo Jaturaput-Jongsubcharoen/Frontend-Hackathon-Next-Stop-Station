@@ -19,7 +19,7 @@ function DriverBatteryCard({ busData }) {
       <ul>
         <li>State of Charge (SoC): <span>{busData.soc}%</span></li>
         <li>State of Health (SoH): <span>{busData.soh}%</span></li>
-        <li>Voltage: <span>{busData.voltage} V</span></li>
+        {/*<li>Voltage: <span>{busData.voltage} V</span></li>*/}
         <li>Temperature: <span>{busData.temperature} °C</span></li>
       </ul>
 
