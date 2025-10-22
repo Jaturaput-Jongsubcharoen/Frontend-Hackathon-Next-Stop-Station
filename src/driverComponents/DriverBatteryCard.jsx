@@ -47,7 +47,7 @@ function DriverBatteryCard({ busData }) {
       </div>
 
       <div className="alerts">
-        <h3>Live Alerts</h3>
+        <h3>AI Live Alerts</h3>
         <div className="alert warning">
           <strong>Battery Alert:</strong> {busData.predictiveAlert}
         </div>
