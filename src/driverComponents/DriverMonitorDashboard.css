@@ -1,0 +1,51 @@
+.driver-dashboard {
+  font-family: "Segoe UI", sans-serif;
+  background: #101820;
+  color: white;
+  padding: 2rem;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.driver-header h1 {
+  color: #00d084;
+}
+
+.bar-section {
+  margin-top: 2rem;
+}
+
+.bar-item {
+  margin: 1rem 0;
+}
+
+.bar {
+  background: #333;
+  height: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  border-radius: 10px;
+}
+
+.status-warning {
+  margin: 1.5rem 0;
+  font-weight: bold;
+  color: #ffcc00;
+}
+
+.live-alerts {
+  margin-top: 2rem;
+  text-align: left;
+  background: #222;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.driver-footer {
+  margin-top: 2rem;
+  font-size: 1.1rem;
+}

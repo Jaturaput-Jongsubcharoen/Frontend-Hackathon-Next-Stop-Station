@@ -3,23 +3,6 @@ import React from "react";
 function SustainabilityPanel({ data }) {
   if (!data) return null;
 
-  let busConditionClass = "";
-  let displayText = "";
-
-  if (data.status === "offline") {
-    busConditionClass = "status-maintenance";
-    displayText = "MAINTENANCE";
-  } else if (data.condition === "critical") {
-    busConditionClass = "status-critical";
-    displayText = "CRITICAL";
-  } else if (data.condition === "warning") {
-    busConditionClass = "status-warning";
-    displayText = "WARNING";
-  } else {
-    busConditionClass = "status-good";
-    displayText = "HEALTHY";
-  }
-
   return (
     <div className="card sustainability-card">
       <h2>Sustainability Impact</h2>
@@ -43,11 +26,6 @@ function SustainabilityPanel({ data }) {
         <p>Max Cell Temp: {data.maxCellTemp} °C</p>
         <p>Internal Resistance: {data.internalResistance} mΩ</p>
         <p>Remaining Range: {data.remainingRange} km</p>
-      </div>
-
-      <div className="bus-status glass-panel">
-        <h3>Selected Bus Status</h3>
-        <p className={busConditionClass}>{displayText}</p>
       </div>
     </div>
   );
