@@ -39,7 +39,7 @@
 .topbar-text p {
   margin: 4px 0 0 0;
   font-size: 13px;
-  color: #ddddff;
+  color: #b5b5b5;
 }
 
 
@@ -133,7 +133,7 @@ body {
 }
 
 .topbar .update {
-  color: #ccccff;
+  color: #b5b5b5;
   font-style: italic;
   font-size: 12px;
 }
