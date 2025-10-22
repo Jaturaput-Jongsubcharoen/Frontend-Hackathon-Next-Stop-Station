@@ -57,7 +57,7 @@ function MainZeroDashboard() {
       <Topbar data={data} />
 
       <div className="dashboard-header">
-        <h1 className="dashboard-title">FLEET OPERATPOR DASHBOARD</h1>
+        <h1 className="dashboard-title">FLEET OPERATOR DASHBOARD</h1>
       </div>
 
       <div className="glass-panel">
