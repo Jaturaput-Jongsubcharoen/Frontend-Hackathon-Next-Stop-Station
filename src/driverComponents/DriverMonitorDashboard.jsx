@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import DriverTopbar from "./DriverTopbar";
 import DriverBatteryCard from "./DriverBatteryCard";
+import FleetLogoBlack from "../images/FleetLogo-BrowserTabIcon-black.png";
 
 function DriverMonitorDashboard() {
   const [busData, setBusData] = useState(null);
@@ -29,22 +30,86 @@ function DriverMonitorDashboard() {
 
   if (error)
     return (
-      <div className="error">
-        <h2>Cannot load vehicle data</h2>
-        <p>{error}</p>
+      <div
+        style={{
+          height: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#f8fafc",
+        }}
+      >
+        <img
+          src={FleetLogoBlack}
+          alt="FleetZero Error"
+          style={{
+            width: "150px",
+            height: "auto",
+            animation: "fadePulse 2s ease-in-out infinite",
+          }}
+        />
+        <p
+          style={{
+            marginTop: "16px",
+            fontSize: "16px",
+            color: "#333",
+            fontWeight: 600,
+            fontFamily: "Inter, sans-serif",
+          }}
+        >
+          Cannot load vehicle data.
+        </p>
+        <p
+          style={{
+            marginTop: "4px",
+            fontSize: "14px",
+            color: "#666",
+            fontFamily: "Inter, sans-serif",
+          }}
+        >
+          {error}
+        </p>
       </div>
     );
 
   if (!busData)
     return (
-      <div className="loading">
-        <h2>Loading Driver Dashboard...</h2>
+      <div
+        style={{
+          height: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#f8fafc",
+        }}
+      >
+        <img
+          src={FleetLogoBlack}
+          alt="FleetZero Loading"
+          style={{
+            width: "150px",
+            height: "auto",
+            animation: "fadePulse 2s ease-in-out infinite",
+          }}
+        />
+        <p
+          style={{
+            marginTop: "16px",
+            fontSize: "16px",
+            color: "#333",
+            fontWeight: 600,
+            fontFamily: "Inter, sans-serif",
+          }}
+        >
+          Loading Driver Dashboard...
+        </p>
       </div>
     );
 
   return (
     <div className="dashboard">
-
       <DriverTopbar busData={busData} />
 
       <div className="dashboard-header">
