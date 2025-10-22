@@ -1,0 +1,167 @@
+/*----------------------------------------
+   DRIVER BATTERY CARD (Glass + Animated Waves)
+----------------------------------------*/
+
+.driver-battery-card {
+  border-radius: 12px;
+  padding: 18px 22px;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+.driver-battery-card ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.driver-battery-card li {
+  display: flex;
+  justify-content: space-between;
+  margin: 6px 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.driver-battery-card li span {
+  color: #000000;
+}
+
+/*----------------------------------------
+   HEALTH SECTION (Animated Circle)
+----------------------------------------*/
+
+.health-section {
+  text-align: center;
+  margin-top: 18px;
+  position: relative;
+}
+
+/* Base circle */
+.health-circle {
+  position: relative;
+  width: 85px;
+  height: 85px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: rgba(220, 220, 220, 0.25);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(60, 180, 75, 0.4);
+}
+
+/* Wave fill animation */
+.health-circle::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(to top, #3cb44b 40%, #4caf50 80%);
+  border-radius: 40%;
+  z-index: 1;
+  opacity: 0.9;
+}
+
+/*----------------------------------------
+   Wave Levels (Conditions)
+----------------------------------------*/
+.health-circle.healthy::before {
+  animation: waveHealthy 5s infinite linear;
+}
+.health-circle.warning::before {
+  animation: waveWarning 5s infinite linear;
+}
+.health-circle.critical::before {
+  animation: waveCritical 5s infinite linear;
+}
+.health-circle.offline::before {
+  background: linear-gradient(to top, rgba(76, 175, 80, 0.3) 40%, rgba(255, 255, 255, 0.9) 80%);
+  animation: waveOffline 6s infinite linear;
+  opacity: 0.4;
+  filter: grayscale(0.5);
+}
+
+/*----------------------------------------
+   Keyframe Animations
+----------------------------------------*/
+@keyframes waveHealthy {
+  from {
+    transform: translateY(0%) translateX(-25%) rotate(0deg);
+  }
+  to {
+    transform: translateY(0%) translateX(-25%) rotate(360deg);
+  }
+}
+
+@keyframes waveWarning {
+  from {
+    transform: translateY(35%) translateX(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateY(35%) translateX(-50%) rotate(360deg);
+  }
+}
+
+@keyframes waveCritical {
+  from {
+    transform: translateY(75%) translateX(-75%) rotate(0deg);
+  }
+  to {
+    transform: translateY(75%) translateX(-75%) rotate(360deg);
+  }
+}
+
+@keyframes waveOffline {
+  from {
+    transform: translateY(85%) translateX(-75%) rotate(0deg);
+  }
+  to {
+    transform: translateY(85%) translateX(-75%) rotate(360deg);
+  }
+}
+
+/*----------------------------------------
+   Text Styling
+----------------------------------------*/
+.health-circle .score {
+  position: relative;
+  z-index: 2;
+  color: #000000;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.health-status {
+  margin-top: 8px;
+  font-weight: 600;
+  color: #000000;
+  font-size: 1.1rem;
+}
+
+/*----------------------------------------
+   ALERTS
+----------------------------------------*/
+.alerts {
+  margin-top: 16px;
+}
+
+.alert {
+  margin: 8px 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.alert.warning {
+  background-color: rgba(255, 193, 7, 0.2);
+  border-left: 4px solid #ffc107;
+}
+
+.alert.info {
+  background-color: rgba(76, 175, 80, 0.15);
+  border-left: 4px solid #4caf50;
+}
