@@ -1,6 +1,8 @@
 import React from "react";
+import "./BatteryCard.css";
 
 function BatteryCard({ data }) {
+  // Standardize and sanitize numeric fields
   const processBatteryData = (rawData) => {
     if (!rawData) return {};
 
@@ -15,15 +17,25 @@ function BatteryCard({ data }) {
     return { ...rawData, soc, soh, voltage, current, temperature, cycles, healthScore };
   };
 
-  const getConditionStyle = (status, condition) => {
-    if (status === "offline") return { text: "MAINTENANCE", color: "#9E9E9E" };
-    if (condition === "critical") return { text: "CRITICAL", color: "#E53935" };
-    if (condition === "warning") return { text: "WARNING", color: "#FFC107" };
-    return { text: "HEALTHY", color: "#4CAF50" };
+  // Determine readable condition text
+  const getConditionText = (status, condition) => {
+    if (status === "offline") return "MAINTENANCE";
+    if (condition === "critical") return "CRITICAL";
+    if (condition === "warning") return "WARNING";
+    return "HEALTHY";
+  };
+
+  // Compute condition class for animation
+  const getConditionClass = (status, condition) => {
+    if (status === "offline") return "offline";
+    if (condition === "critical") return "critical";
+    if (condition === "warning") return "warning";
+    return "healthy";
   };
 
   const processedData = processBatteryData(data);
-  const condition = getConditionStyle(processedData.status, processedData.condition);
+  const conditionText = getConditionText(processedData.status, processedData.condition);
+  const conditionClass = getConditionClass(processedData.status, processedData.condition);
 
   return (
     <div className="card battery-card">
@@ -42,23 +54,13 @@ function BatteryCard({ data }) {
 
       <div className="health-section">
         <h3>AI-Predicted Health Score</h3>
-        <div className="health-circle" style={{ borderColor: condition.color }}>
-          <div className="score" style={{ color: condition.color }}>
-            {processedData.healthScore}
-          </div>
+
+        {/* Dynamic wave level controlled by CSS */}
+        <div className={`health-circle ${conditionClass}`}>
+          <div className="score">{processedData.healthScore}</div>
         </div>
 
-        <p
-          className="bus-condition"
-          style={{
-            color: condition.color,
-            fontWeight: 600,
-            fontSize: "1.1rem",
-            marginTop: "6px",
-          }}
-        >
-          {condition.text}
-        </p>
+        <p className="health-status">{conditionText}</p>
       </div>
     </div>
   );
