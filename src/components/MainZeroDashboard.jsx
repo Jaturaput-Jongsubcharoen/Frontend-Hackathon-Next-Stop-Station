@@ -8,6 +8,8 @@ import Topbar from "./Topbar";
 import BatteryPredictionPanel from "./BatteryPredictionPanel";
 import MaintenanceModal from "./MaintenanceModal";
 
+import FleetLogo from "../images/FleetLogo-BrowserTabIcon.png";
+
 function MainZeroDashboard() {
   const [data, setData] = useState(null);
   const [selectedBus, setSelectedBus] = useState(null);
@@ -42,8 +44,12 @@ function MainZeroDashboard() {
 
   if (!data)
     return (
-      <div className="loading">
-        <h2>Loading FleetZero Battery Digital Twin...</h2>
+      <div className="loading-logo">
+        <img
+          src={FleetLogo}
+          alt="FleetZero Loading"
+          className="fleet-logo-breath"
+        />
       </div>
     );
 

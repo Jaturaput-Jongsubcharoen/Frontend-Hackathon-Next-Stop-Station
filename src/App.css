@@ -589,3 +589,25 @@ body {
     text-align: center;
   }
 }
+
+
+
+.loading-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f9fafb;
+}
+
+.fleet-logo-breath {
+  width: 120px; /* Adjust size */
+  height: auto;
+  animation: fadePulse 2s ease-in-out infinite;
+}
+
+@keyframes fadePulse {
+  0%   { opacity: 0.3; transform: scale(0.95); }
+  50%  { opacity: 1;   transform: scale(1); }
+  100% { opacity: 0.3; transform: scale(0.95); }
+}
