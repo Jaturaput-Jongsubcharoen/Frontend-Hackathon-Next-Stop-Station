@@ -34,6 +34,7 @@ function BatteryPerformanceChart({ bus }) {
           { day: "Day 4", performance: bus.healthScore - 5 },
           { day: "Day 5", performance: bus.healthScore - 7 },
           { day: "Day 6", performance: bus.healthScore - 8 },
+          { day: "Day 7", performance: bus.healthScore - 9 },
         ]);
       }
     };

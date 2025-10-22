@@ -1,10 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import BatteryPerformanceChart from "./BatteryPerformanceChart";
-import MaintenanceModal from "./MaintenanceModal";
 
-function BatteryPredictionPanel({ data }) {
-  const [isModalOpen, setModalOpen] = useState(false);
-
+function BatteryPredictionPanel({ data, onOpenModal }) {
   if (!data) return null;
 
   return (
@@ -20,7 +17,8 @@ function BatteryPredictionPanel({ data }) {
         <strong>Optimization:</strong> {data.optimization}
       </div>
       <div className="alert insight">
-        <strong>Insight:</strong> Estimated failure risk: {data.estimatedFailureRisk} ({data.riskLevel})
+        <strong>Insight:</strong> Estimated failure risk:{" "}
+        {data.estimatedFailureRisk} ({data.riskLevel})
       </div>
 
       <div className="battery-chart-section mt-4">
@@ -28,16 +26,10 @@ function BatteryPredictionPanel({ data }) {
       </div>
 
       <div className="mt-4 text-center">
-        <button className="schedule-btn" onClick={() => setModalOpen(true)}>
+        <button className="schedule-btn" onClick={onOpenModal}>
           Schedule Maintenance Now
         </button>
       </div>
-
-      <MaintenanceModal
-        isOpen={isModalOpen}
-        onClose={() => setModalOpen(false)}
-        busData={data}
-      />
     </div>
   );
 }

@@ -6,11 +6,13 @@ import BusSelector from "./BusSelector";
 import FleetStatusOverview from "./FleetStatusOverview";
 import Topbar from "./Topbar";
 import BatteryPredictionPanel from "./BatteryPredictionPanel";
+import MaintenanceModal from "./MaintenanceModal";
 
 function MainZeroDashboard() {
   const [data, setData] = useState(null);
   const [selectedBus, setSelectedBus] = useState(null);
   const [error, setError] = useState(null);
+  const [isModalOpen, setModalOpen] = useState(false);
 
   const fetchBatteryData = async () => {
     try {
@@ -60,14 +62,23 @@ function MainZeroDashboard() {
 
       {selectedBus && (
         <>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start auto-rows-min">
+          <div className="grid grid-cols-1 lg:grid-cols-2">
             <BatteryCard data={selectedBus} />
             <SustainabilityPanel data={selectedBus} fleet={data} />
           </div>
 
-          <div>
-            <BatteryPredictionPanel data={selectedBus} />
+          <div className="grid grid-cols-1 lg:grid-cols-1">
+            <BatteryPredictionPanel
+              data={selectedBus}
+              onOpenModal={() => setModalOpen(true)}
+            />
           </div>
+
+          <MaintenanceModal
+            isOpen={isModalOpen}
+            onClose={() => setModalOpen(false)}
+            busData={selectedBus}
+          />
         </>
       )}
     </div>
