@@ -601,7 +601,7 @@ body {
 }
 
 .fleet-logo-breath {
-  width: 120px; /* Adjust size */
+  width: 120px;
   height: auto;
   animation: fadePulse 2s ease-in-out infinite;
 }

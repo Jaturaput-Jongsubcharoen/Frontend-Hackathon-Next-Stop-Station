@@ -8,7 +8,7 @@ import Topbar from "./Topbar";
 import BatteryPredictionPanel from "./BatteryPredictionPanel";
 import MaintenanceModal from "./MaintenanceModal";
 
-import FleetLogo from "../images/FleetLogo-BrowserTabIcon.png";
+import FleetLogo from "../images/FleetLogo-BrowserTabIcon-black.png";
 
 function MainZeroDashboard() {
   const [data, setData] = useState(null);
@@ -36,20 +36,82 @@ function MainZeroDashboard() {
 
   if (error)
     return (
-      <div className="error">
-        <h2>Cannot load FleetZero data</h2>
-        <p>{error}</p>
+      <div
+        style={{
+          height: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#f8fafc",
+        }}
+      >
+        <img
+          src={FleetLogo}
+          alt="FleetZero Error"
+          style={{
+            width: "150px",
+            height: "auto",
+            animation: "fadePulse 2s ease-in-out infinite",
+            filter: "brightness(0)",
+          }}
+        />
+        <p
+          style={{
+            marginTop: "16px",
+            fontSize: "16px",
+            color: "#333",
+            fontWeight: 600,
+            fontFamily: "Inter, sans-serif",
+          }}
+        >
+          Cannot load FleetZero data. Please try again later.
+        </p>
+        <p
+          style={{
+            marginTop: "4px",
+            fontSize: "14px",
+            color: "#666",
+            fontFamily: "Inter, sans-serif",
+          }}
+        >
+          {error}
+        </p>
       </div>
     );
 
   if (!data)
     return (
-      <div className="loading-logo">
+      <div
+        style={{
+          height: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#f8fafc",
+        }}
+      >
         <img
           src={FleetLogo}
           alt="FleetZero Loading"
-          className="fleet-logo-breath"
+          style={{
+            width: "150px",
+            height: "auto",
+            animation: "fadePulse 2s ease-in-out infinite",
+          }}
         />
+        <p
+          style={{
+            marginTop: "16px",
+            fontSize: "16px",
+            color: "#333",
+            fontWeight: 600,
+            fontFamily: "Inter, sans-serif",
+          }}
+        >
+          Loading FleetZero Battery Digital Twin...
+        </p>
       </div>
     );
 
