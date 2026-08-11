@@ -1,10 +1,10 @@
 # AI Battery Intelligence with Digital Twin - Frontend
 
-## Hackathon Highlight (1st Place)
+## Hackathon Highlight — 1st Place Winner 🏆
 
-[![Fleet Operator Dashboard](assets/readme/live-demo-dashboard.png)](https://frontend-hackathon-next-stop-station.onrender.com/)
+[![Fleet Operator Dashboard](images/fleet-operator-dashboard.png)](https://frontend-hackathon-next-stop-station.onrender.com/)
 
-[![Fleet Zero Innovation Transportation Jam Certificate](assets/readme/hackathon-certificate.png)](https://client-jaturaput-portfolio.onrender.com/certificate/Jaturaput_Jongsubcharoen-Certificate_FleetZero-Centennial_Innovates_Jam.pdf)
+[![Fleet Zero Innovation Transportation Jam Certificate](images/fleetzero-winner-certificate.jpg)](https://client-jaturaput-portfolio.onrender.com/certificate/Jaturaput_Jongsubcharoen-Certificate_FleetZero-Centennial_Innovates_Jam.pdf)
 
 This frontend was created for the **Fleet Zero Innovation Transportation Jam** by team **NextStop Charge**, where the project won **1st Place**.
 
